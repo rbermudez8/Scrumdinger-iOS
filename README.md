@@ -17,11 +17,14 @@ Built following Apple’s SwiftUI tutorial, this project provides an introductio
 - iOS 15 and later
 
 # Setup
-- Clone the repository
-      git clone https://github.com/your-username/scrumdinger.git
-- Open the project in Xcode
-      cd scrumdinger
-      open Scrumdinger.xcodeproj
+1. Clone the repository:
+-       git clone https://github.com/your-username/scrumdinger.git
+  
+2. Open the project in Xcode:
+-       cd scrumdinger
+-       open Scrumdinger.xcodeproj
+
+3. Build and run the app on your simulator or device.
 
 # Acknowledgements
 The project is based on Apple's Scrumdinger SwiftUI Tutorial.
