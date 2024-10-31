@@ -1,3 +1,7 @@
+/*
+ See LICENSE folder for this sample’s licensing information.
+ */
+
 import SwiftUI
 
 struct TrailingIconLabelStyle: LabelStyle {
@@ -8,7 +12,6 @@ struct TrailingIconLabelStyle: LabelStyle {
         }
     }
 }
-
 
 extension LabelStyle where Self == TrailingIconLabelStyle {
     static var trailingIcon: Self { Self() }

@@ -1,36 +1,39 @@
-//
-//  ScrumsView.swift
-//  Scrumdinger
-//
-//  Created by Roberto Bermúdez on 02/09/2024.
-//
+/*
+ See LICENSE folder for this sample’s licensing information.
+ */
 
 import SwiftUI
 
 struct ScrumsView: View {
-    let scrums: [DailyScrum]
+    @Binding var scrums: [DailyScrum]
+    @State private var isPresentingNewScrumView = false
     
     var body: some View {
         NavigationStack {
-            List(scrums) {
-                scrum in NavigationLink(destination: DetailView(scrum: scrum)) {
+            List($scrums) { $scrum in
+                NavigationLink(destination: DetailView(scrum: $scrum)) {
                     CardView(scrum: scrum)
                 }
                 .listRowBackground(scrum.theme.mainColor)
             }
             .navigationTitle("Daily Scrums")
             .toolbar {
-                Button(action: {}) {
+                Button(action: {
+                    isPresentingNewScrumView = true
+                }) {
                     Image(systemName: "plus")
                 }
                 .accessibilityLabel("New Scrum")
             }
+        }
+        .sheet(isPresented: $isPresentingNewScrumView) {
+            NewScrumSheet(scrums: $scrums, isPresentingNewScrumView: $isPresentingNewScrumView)
         }
     }
 }
 
 struct ScrumsView_Previews: PreviewProvider {
     static var previews: some View {
-        ScrumsView(scrums: DailyScrum.sampleData)
+        ScrumsView(scrums: .constant(DailyScrum.sampleData))
     }
 }

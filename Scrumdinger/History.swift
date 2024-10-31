@@ -1,8 +1,17 @@
-//
-//  History.swift
-//  Scrumdinger
-//
-//  Created by Roberto Bermúdez on 30/10/2024.
-//
+/*
+ See LICENSE folder for this sample’s licensing information.
+ */
 
 import Foundation
+
+struct History: Identifiable {
+    let id: UUID
+    let date: Date
+    var attendees: [DailyScrum.Attendee]
+    
+    init(id: UUID = UUID(), date: Date = Date(), attendees: [DailyScrum.Attendee]) {
+        self.id = id
+        self.date = date
+        self.attendees = attendees
+    }
+}
